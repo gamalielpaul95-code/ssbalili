@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Genesis - Shule Sabato SDA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFDF8;
+  --bg-accent: #1B3A2D;
+  --bg-accent-light: #2D5E47;
+  --text-primary: #1A1A1A;
+  --text-secondary: #5A5A5A;
+  --text-muted: #8A8A7A;
+  --text-on-accent: #FFFFFF;
+  --gold: #C4972A;
+  --gold-light: #E8C86A;
+  --gold-bg: #FFF8E7;
+  --border: #E5DFD3;
+  --border-light: #F0EBE0;
+  --danger: #C0392B;
+  --danger-light: #FDEDEB;
+  --success: #27AE60;
+  --success-light: #E8F8F0;
+  --blue: #2980B9;
+  --blue-light: #EBF5FB;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+.dark {
+  --bg-primary: #0F1A15;
+  --bg-secondary: #162620;
+  --bg-card: #1A2E26;
+  --bg-accent: #2D5E47;
+  --bg-accent-light: #3A7A5E;
+  --text-primary: #E8E4DC;
+  --text-secondary: #A8A898;
+  --text-muted: #6A6A5A;
+  --text-on-accent: #FFFFFF;
+  --gold: #E8C86A;
+  --gold-light: #C4972A;
+  --gold-bg: #2A2510;
+  --border: #2A3E34;
+  --border-light: #1E3228;
+  --danger: #E74C3C;
+  --danger-light: #2D1A18;
+  --success: #2ECC71;
+  --success-light: #1A2D20;
+  --blue: #3498DB;
+  --blue-light: #162A38;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+/* ===== HEADER ===== */
+.app-header {
+  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-accent-light) 100%);
+  padding: 20px 16px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(196,151,42,0.4);
+}
+
+.logo-text h1 {
+  font-size: 20px;
+  color: var(--text-on-accent);
+  letter-spacing: 1px;
+}
+
+.logo-text span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
+}
+
+.header-date {
+  text-align: right;
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.header-date .sabato {
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ===== NAV TABS ===== */
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.nav-tab:hover { background: rgba(255,255,255,0.2); }
+
+.nav-tab.active {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(196,151,42,0.4);
+}
+
+.nav-tab i { font-size: 12px; }
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  padding: 16px;
+  padding-bottom: 100px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page { display: none; animation: fadeIn 0.4s ease; }
+.page.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DASHBOARD ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.stat-card.green::before { background: var(--success); }
+.stat-card.gold::before { background: var(--gold); }
+.stat-card.blue::before { background: var(--blue); }
+.stat-card.red::before { background: var(--danger); }
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.stat-card.green .stat-icon { background: var(--success-light); color: var(--success); }
+.stat-card.gold .stat-icon { background: var(--gold-bg); color: var(--gold); }
+.stat-card.blue .stat-icon { background: var(--blue-light); color: var(--blue); }
+.stat-card.red .stat-icon { background: var(--danger-light); color: var(--danger); }
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title i { color: var(--gold); font-size: 16px; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 { font-size: 15px; }
+
+/* ===== FORM ELEMENTS ===== */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(196,151,42,0.15);
+}
+
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-accent-light) 100%);
+  color: var(--text-on-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(196,151,42,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 12px;
+  width: auto;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.btn-icon:hover { color: var(--gold); }
+
+/* ===== MEMBER LIST ===== */
+.member-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s;
+}
+
+.member-item:last-child { border-bottom: none; }
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.member-info { flex: 1; min-width: 0; }
+.member-info h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.member-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ===== ATTENDANCE ===== */
+.attendance-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.attendance-item:last-child { border-bottom: none; }
+
+.attendance-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 13px;
+}
+
+.attendance-check.checked {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+.attendance-check.absent {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.attendance-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ===== OFFERING TABLE ===== */
+.offering-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.offering-entry:last-child { border-bottom: none; }
+
+.offering-type {
+  font-size: 13px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.offering-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ===== BADGE ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-green { background: var(--success-light); color: var(--success); }
+.badge-gold { background: var(--gold-bg); color: var(--gold); }
+.badge-blue { background: var(--blue-light); color: var(--blue); }
+
+/* ===== REPORT ===== */
+.report-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.report-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+
+.report-row:last-child { border-bottom: none; }
+
+.report-row .label { color: var(--text-secondary); }
+.report-row .value { font-weight: 700; }
+
+.report-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ===== SEARCH ===== */
+.search-box {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ===== DIVISION SELECTOR ===== */
+.division-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.division-chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.division-chip.active {
+  background: var(--bg-accent);
+  border-color: var(--bg-accent);
+  color: var(--text-on-accent);
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state i {
+  font-size: 40px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 20px 16px 30px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.modal-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+
+.modal-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--bg-accent);
+  color: var(--text-on-accent);
+  padding: 12px 24px;
+  border-radius: var(--radius-xl);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ===== FAB ===== */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(196,151,42,0.4);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.fab:hover { transform: scale(1.08); }
+
+/* ===== QUARTER SELECTOR ===== */
+.quarter-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.quarter-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quarter-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+/* ===== LESSON LIST ===== */
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.lesson-item:last-child { border-bottom: none; }
+
+.lesson-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--gold-bg);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.lesson-info { flex: 1; }
+.lesson-info h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.lesson-info span { font-size: 12px; color: var(--text-muted); }
+
+.lesson-studied {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+/* ===== REPORT TEXT AREA ===== */
+.report-text-area {
+  background: var(--bg-primary);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 12px;
+  font-family: 'DM Sans', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: relative;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.copy-btn-wrap {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 380px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stat-card { padding: 12px; }
+  .stat-value { font-size: 22px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="app-header">
+  <div class="header-top">
+    <div class="logo-section">
+      <div class="logo-icon"><i class="fas fa-book-bible"></i></div>
+      <div class="logo-text">
+        <h1>GENESIS</h1>
+        <span>Shule Sabato &bull; SDA</span>
+      </div>
+    </div>
+    <div class="header-date">
+      <div class="sabato" id="sabatoDate"></div>
+      <div id="currentDate"></div>
+    </div>
+  </div>
+  <nav class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-page="dashboard"><i class="fas fa-home"></i> Nyumbani</button>
+    <button class="nav-tab" data-page="wanachama"><i class="fas fa-users"></i> Wanachama</button>
+    <button class="nav-tab" data-page="mahudhurio"><i class="fas fa-clipboard-check"></i> Mahudhurio</button>
+    <button class="nav-tab" data-page="masomo"><i class="fas fa-book-open"></i> Masomo</button>
+    <button class="nav-tab" data-page="sadaka"><i class="fas fa-hand-holding-heart"></i> Sadaka</button>
+    <button class="nav-tab" data-page="ripoti"><i class="fas fa-chart-bar"></i> Ripoti</button>
+  </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+  <!-- ===== DASHBOARD ===== -->
+  <div class="page active" id="page-dashboard">
+    <div class="stats-grid">
+      <div class="stat-card green">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-value" id="totalMembers">0</div>
+        <div class="stat-label">Wanachama</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon"><i class="fas fa-clipboard-check"></i></div>
+        <div class="stat-value" id="todayAttendance">0</div>
+        <div class="stat-label">Waliohudhuria Leo</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+        <div class="stat-value" id="lessonsStudied">0</div>
+        <div class="stat-label">Masomo Yaliyosomwa</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <div class="stat-value" id="totalOffering">0</div>
+        <div class="stat-label">Sadaka (TZS)</div>
+      </div>
+    </div>
+
+    <h2 class="section-title"><i class="fas fa-clock"></i> Shughuli za Hivi Karibuni</h2>
+    <div id="recentActivity">
+      <div class="empty-state">
+        <i class="fas fa-seedling"></i>
+        <p>Anza kwa kuongeza wanachama!</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h2 class="section-title"><i class="fas fa-chart-pie"></i> Muhtasari wa Darasa</h2>
+      <div id="classSummary"></div>
+    </div>
+  </div>
+
+  <!-- ===== WANACHAMA (Members) ===== -->
+  <div class="page" id="page-wanachama">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="memberSearch" placeholder="Tafuta mwanachama...">
+    </div>
+
+    <div class="division-chips" id="divisionFilter">
+      <span class="division-chip active" data-div="all">Wote</span>
+      <span class="division-chip" data-div="Watu Wazima">Watu Wazima</span>
+      <span class="division-chip" data-div="Vijana">Vijana</span>
+      <span class="division-chip" data-div="Watoto">Watoto</span>
+      <span class="division-chip" data-div="Darasa la Ubatizo">Ubatizo</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Orodha ya Wanachama</h3>
+        <span class="badge badge-green" id="memberCount">0</span>
+      </div>
+   <div id="memberList"></div>
+    </div>
+  </div>
+
+  <!-- ===== MAHUDHURIO (Attendance) ===== -->
+  <div class="page" id="page-mahudhurio">
+    <div class="form-group"><!-- <!--  --> -->
+      <label>Tarehe ya Sabato</label>
+      <input type="date" id="attendanceDate">
+    </div>
+
+    <div class="division-chips" id="attendanceDivFilter">
+      <span class="division-chip active" data-div="all">Wote</span>
+      <span class="division-chip" data-div="Watu Wazima">Watu Wazima</span>
+      <span class="division-chip" data-div="Vijana">Vijana</span>
+      <span class="division-chip" data-div="Watoto">Watoto</span>
+      <span class="division-chip" data-div="Darasa la Ubatizo">Ubatizo</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Weka Mahudhurio</h3>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-sm btn-outline" onclick="markAll(true)"><i class="fas fa-check-double"></i> Wote</button>
+          <button class="btn btn-sm btn-outline" onclick="markAll(false)"><i class="fas fa-times"></i> Ondoa</button>
+        </div>
+      </div>
+      <div id="attendanceList"></div>
+    </div>
+
+    <button class="btn btn-primary" onclick="saveAttendance()" style="margin-top:12px;">
+      <i class="fas fa-save"></i> Hifadhi Mahudhurio
+    </button>
+  </div>
+
+  <!-- ===== MASOMO (Lessons) ===== -->
+  <div class="page" id="page-masomo">
+    <div class="quarter-selector" id="quarterSelector"></div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Masomo ya Robo Mwaka</h3>
+          <button class="btn btn-sm btn-gold" onclick="openLessonModal()"><i class="fas fa-plus"></i> Ongeza</button>
+      </div>
+      <div id="lessonList"></div>
+    </div>
+  </div>
+
+  <!-- ===== SADAKA (Offerings) ===== -->
+  <div class="page" id="page-sadaka">
+    <div class="form-group">
+      <label>Tarehe ya Sabato</label>
+      <input type="date" id="offeringDate">
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Rekodi ya Sadaka</h3>
+        <button class="btn btn-sm btn-gold" onclick="openOfferingModal()"><i class="fas fa-plus"></i> Ongeza</button>
+      </div>
+      <div id="offeringList"></div>
+    </div>
+
+    <div class="report-block" style="margin-top:16px;">
+      <div class="report-row">
+        <span class="label">Jumla ya Leo</span>
+        <span class="value report-total" id="todayOfferingTotal">TZS 0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RIPOTI (Reports) ===== -->
+  <div class="page" id="page-ripoti">
+    <div class="form-row" style="margin-bottom:16px;">
+      <div class="form-group">
+        <label>Tarehe Kuanzia</label>
+        <input type="date" id="reportFrom">
+      </div>
+      <div class="form-group">
+        <label>Tarehe Hadi</label>
+        <input type="date" id="reportTo">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="generateReport()" style="margin-bottom:16px;">
+      <i class="fas fa-file-alt"></i> Tengeneza Ripoti
+    </button>
+
+    <div id="reportOutput" style="display:none;">
+      <h2 class="section-title"><i class="fas fa-scroll"></i> Ripoti ya Shule Sabato</h2>
+
+      <div class="report-block">
+        <h3 style="font-size:14px;margin-bottom:10px;color:var(--gold);">📊 Takwimu za Mahudhurio</h3>
+        <div id="reportAttendance"></div>
+      </div>
+
+      <div class="report-block">
+        <h3 style="font-size:14px;margin-bottom:10px;color:var(--gold);">💰 Takwimu za Sadaka</h3>
+        <div id="reportOfferings"></div>
+      </div>
+
+      <div class="report-block">
+        <h3 style="font-size:14px;margin-bottom:10px;color:var(--gold);">📖 Masomo Yaliyosomwa</h3>
+        <div id="reportLessons"></div>
+      </div>
+
+      <!-- Sehemu ya 1 -->
+      <h3 style="font-size:14px;margin:16px 0 8px;color:var(--text-secondary);">📋 Ripoti Sehemu ya 1 (Nakili)</h3>
+      <div class="report-text-area" id="reportText1"></div>
+      <div class="copy-btn-wrap">
+        <button class="btn btn-sm btn-gold" onclick="copyReport(1)"><i class="fas fa-copy"></i> Nakili Sehemu 1</button>
+      </div>
+
+      <!-- Sehemu ya 2 -->
+      <h3 style="font-size:14px;margin:16px 0 8px;color:var(--text-secondary);">📋 Ripoti Sehemu ya 2 (Nakili)</h3>
+      <div class="report-text-area" id="reportText2"></div>
+      <div class="copy-btn-wrap">
+        <button class="btn btn-sm btn-gold" onclick="copyReport(2)"><i class="fas fa-copy"></i> Nakili Sehemu 2</button>
+      </div>
+
+      <button class="btn btn-outline" onclick="copyReport('all')" style="margin-top:12px;">
+        <i class="fas fa-copy"></i> Nakili Ripoti Yote
+      </button>
+    </div>
+  </div>
+
+</main>
+
+<!-- FAB -->
+<button class="fab" id="mainFab" onclick="handleFab()"><i class="fas fa-plus"></i></button>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== DATA STORE ==========
+const APP_KEY = 'genesis_sda_v2';
+let appData = {
+  members: [],
+  attendance: {},
+  lessons: [],
+  offerings: [],
+  activities: []
+};
+
+function loadData() {
+  try {
+    const raw = document.cookie.split('; ').find(c => c.startsWith(APP_KEY + '='));
+    if (raw) {
+      const decoded = decodeURIComponent(raw.split('=').slice(1).join('='));
+      appData = JSON.parse(decoded);
+    }
+  } catch (e) {
+    // If cookie fails or is too large, try inline storage
+  }
+  // Ensure structure
+  if (!appData.members) appData.members = [];
+  if (!appData.attendance) appData.attendance = {};
+  if (!appData.lessons) appData.lessons = [];
+  if (!appData.offerings) appData.offerings = [];
+  if (!appData.activities) appData.activities = [];
+}
+
+function saveData() {
+  try {
+    const json = JSON.stringify(appData);
+    // Use multiple cookies if needed
+    document.cookie = APP_KEY + '=' + encodeURIComponent(json) + ';path=/;max-age=31536000;SameSite=Lax';
+  } catch (e) {
+    // Silent fail
+  }
+}
+
+// ========== INIT ==========
+const AVATAR_COLORS = ['#1B3A2D','#C4972A','#2980B9','#8E44AD','#D35400','#16A085','#C0392B','#2C3E50'];
+
+function getInitials(name) {
+  return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+}
+
+function getAvatarColor(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T00:00:00');
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ago','Sep','Okt','Nov','Des'];
+  return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function formatCurrency(num) {
+  return Number(num || 0).toLocaleString('en-US');
+}
+
+function getTodayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function getNextSabbath() {
+  const d = new Date();
+  const day = d.getDay();
+  const diff = (6 - day + 7) % 7;
+  const sabbath = new Date(d);
+  sabbath.setDate(d.getDate() + (diff === 0 && day === 6 ? 0 : diff));
+  return sabbath;
+}
+
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+// ========== DARK MODE ==========
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.classList.add('dark');
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+  if (event.matches) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+});
+
+// ========== NAVIGATION ==========
+let currentPage = 'dashboard';
+
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const page = tab.dataset.page;
+    switchPage(page);
+  });
+});
+
+function switchPage(page) {
+  currentPage = page;
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.nav-tab[data-page="${page}"]`).classList.add('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+
+  // Update FAB visibility
+  const fab = document.getElementById('mainFab');
+  fab.style.display = ['wanachama','sadaka','masomo'].includes(page) ? 'flex' : 'none';
+
+  refreshPage(page);
+}
+
+function refreshPage(page) {
+  if (page === 'dashboard') renderDashboard();
+  if (page === 'wanachama') renderMembers();
+  if (page === 'mahudhurio') renderAttendance();
+  if (page === 'masomo') renderLessons();
+  if (page === 'sadaka') renderOfferings();
+}
+
+// ========== TOAST ==========
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ========== CUSTOM MODAL DIALOGS ==========
+function showConfirmDialog(message, onConfirm) {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal" style="border-radius:var(--radius-xl);max-width:380px;margin:auto;">
+      <div class="modal-handle"></div>
+      <p style="font-size:15px;text-align:center;margin-bottom:20px;color:var(--text-primary);">${message}</p>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-outline" style="flex:1;" id="confirmCancel">Hapana</button>
+        <button class="btn btn-danger" style="flex:1;" id="confirmOk">Ndio</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelector('#confirmCancel').onclick = () => overlay.remove();
+  overlay.querySelector('#confirmOk').onclick = () => { overlay.remove(); onConfirm(); };
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+}
+
+// ========== DASHBOARD ==========
+function renderDashboard() {
+  document.getElementById('totalMembers').textContent = appData.members.length;
+
+  const today = getTodayStr();
+  const todayAtt = appData.attendance[today] || {};
+  const present = Object.values(todayAtt).filter(v => v === true).length;
+  document.getElementById('todayAttendance').textContent = present;
+
+  const studied = appData.lessons.filter(l => l.studied).length;
+  document.getElementById('lessonsStudied').textContent = studied;
+
+  const totalOff = appData.offerings.reduce((s, o) => s + (o.amount || 0), 0);
+  document.getElementById('totalOffering').textContent = formatCurrency(totalOff);
+
+  // Recent Activity
+  const actEl = document.getElementById('recentActivity');
+  if (appData.activities.length === 0) {
+    actEl.innerHTML = '<div class="empty-state"><i class="fas fa-seedling"></i><p>Anza kwa kuongeza wanachama!</p></div>';
+  } else {
+    const recent = appData.activities.slice(-5).reverse();
+    actEl.innerHTML = recent.map(a => `
+      <div class="card" style="padding:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold-bg);display:flex;align-items:center;justify-content:center;">
+            <i class="fas ${a.icon || 'fa-circle-info'}" style="color:var(--gold);font-size:13px;"></i>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:600;">${a.text}</div>
+            <div style="font-size:11px;color:var(--text-muted);">${a.date || ''}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Class summary
+  const summaryEl = document.getElementById('classSummary');
+  const divisions = ['Watu Wazima','Vijana','Watoto','Darasa la Ubatizo'];
+  summaryEl.innerHTML = divisions.map(d => {
+    const count = appData.members.filter(m => m.division === d).length;
+    return `
+      <div class="card" style="padding:12px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:14px;font-weight:600;">${d}</span>
+        <span class="badge badge-green">${count}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+// ========== MEMBERS ==========
+let memberFilterDiv = 'all';
+
+function renderMembers() {
+  const search = (document.getElementById('memberSearch').value || '').toLowerCase();
+  let filtered = appData.members.filter(m => {
+    const matchSearch = m.name.toLowerCase().includes(search) || (m.phone || '').includes(search);
+    const matchDiv = memberFilterDiv === 'all' || m.division === memberFilterDiv;
+    return matchSearch && matchDiv;
+  });
+
+  document.getElementById('memberCount').textContent = filtered.length;
+
+  const listEl = document.getElementById('memberList');
+  if (filtered.length === 0) {
+    listEl.innerHTML = '<div class="empty-state"><i class="fas fa-user-plus"></i><p>Hakuna wanachama bado</p></div>';
+    return;
+  }
+
+  listEl.innerHTML = filtered.map(m => `
+    <div class="member-item">
+      <div class="member-avatar" style="background:${getAvatarColor(m.name)}">${getInitials(m.name)}</div>
+      <div class="member-info">
+        <h4>${m.name}</h4>
+        <span>${m.division || 'Hakuna darasa'} ${m.phone ? '&bull; ' + m.phone : ''}</span>
+      </div>
+      <div class="member-actions">
+        <button class="btn-icon" onclick="editMember('${m.id}')"><i class="fas fa-pen"></i></button>
+        <button class="btn-icon" onclick="deleteMember('${m.id}')" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('memberSearch').addEventListener('input', renderMembers);
+
+document.getElementById('divisionFilter').addEventListener('click', (e) => {
+  const chip = e.target.closest('.division-chip');
+  if (!chip) return;
+  document.querySelectorAll('#divisionFilter .division-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  memberFilterDiv = chip.dataset.div;
+  renderMembers();
+});
+
+function openMemberModal(member) {
+  const isEdit = !!member;
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">${isEdit ? 'Hariri Mwanachama' : 'Ongeza Mwanachama'}</h2>
+      <div class="form-group">
+        <label>Jina Kamili *</label>
+        <input type="text" id="mName" value="${isEdit ? member.name : ''}" placeholder="Jina la kwanza na la mwisho">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Simu</label>
+          <input type="tel" id="mPhone" value="${isEdit ? (member.phone||'') : ''}" placeholder="07XXXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>Jinsia</label>
+          <select id="mGender">
+            <option value="">Chagua</option>
+            <option value="Me" ${isEdit && member.gender==='Me' ? 'selected' : ''}>Me</option>
+            <option value="Ke" ${isEdit && member.gender==='Ke' ? 'selected' : ''}>Ke</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Darasa / Division *</label>
+        <select id="mDivision">
+          <option value="">Chagua Darasa</option>
+          <option value="Watu Wazima" ${isEdit && member.division==='Watu Wazima' ? 'selected' : ''}>Watu Wazima</option>
+          <option value="Vijana" ${isEdit && member.division==='Vijana' ? 'selected' : ''}>Vijana</option>
+          <option value="Watoto" ${isEdit && member.division==='Watoto' ? 'selected' : ''}>Watoto</option>
+          <option value="Darasa la Ubatizo" ${isEdit && member.division==='Darasa la Ubatizo' ? 'selected' : ''}>Darasa la Ubatizo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Cheo / Jukumu</label>
+        <input type="text" id="mRole" value="${isEdit ? (member.role||'') : ''}" placeholder="Mfano: Katibu, Mwalimu...">
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove()">Ghairi</button>
+        <button class="btn btn-primary" id="saveMemberBtn">${isEdit ? 'Hifadhi' : 'Ongeza'}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+
+  overlay.querySelector('#saveMemberBtn').addEventListener('click', () => {
+    const name = overlay.querySelector('#mName').value.trim();
+    const division = overlay.querySelector('#mDivision').value;
+    if (!name || !division) {
+      showToast('Tafadhali jaza jina na darasa!');
+      return;
+    }
+    const data = {
+      id: isEdit ? member.id : generateId(),
+      name,
+      phone: overlay.querySelector('#mPhone').value.trim(),
+      gender: overlay.querySelector('#mGender').value,
+      division,
+      role: overlay.querySelector('#mRole').value.trim(),
+    };
+
+    if (isEdit) {
+      const idx = appData.members.findIndex(m => m.id === member.id);
+      if (idx >= 0) appData.members[idx] = data;
+    } else {
+      appData.members.push(data);
+      addActivity('fa-user-plus', `${name} ameongezwa - ${division}`);
+    }
+    saveData();
+    overlay.remove();
+    renderMembers();
+    showToast(isEdit ? 'Mwanachama ameboreshwa!' : 'Mwanachama ameongezwa!');
+  });
+}
+
+function editMember(id) {
+  const member = appData.members.find(m => m.id === id);
+  if (member) openMemberModal(member);
+}
+
+function deleteMember(id) {
+  const member = appData.members.find(m => m.id === id);
+  if (!member) return;
+  showConfirmDialog(`Unataka kumfuta ${member.name}?`, () => {
+    appData.members = appData.members.filter(m => m.id !== id);
+    saveData();
+    renderMembers();
+    showToast('Mwanachama amefutwa');
+  });
+}
+
+// ========== ATTENDANCE ==========
+let attendanceDivFilter = 'all';
+
+function renderAttendance() {
+  const dateInput = document.getElementById('attendanceDate');
+  if (!dateInput.value) dateInput.value = getTodayStr();
+
+  const date = dateInput.value;
+  const search = attendanceDivFilter;
+  let members = appData.members;
+  if (search !== 'all') {
+    members = members.filter(m => m.division === search);
+  }
+
+  const att = appData.attendance[date] || {};
+  const listEl = document.getElementById('attendanceList');
+
+  if (members.length === 0) {
+    listEl.innerHTML = '<div class="empty-state"><i class="fas fa-users"></i><p>Ongeza wanachama kwanza</p></div>';
+    return;
+  }
+
+  listEl.innerHTML = members.map(m => {
+    const status = att[m.id];
+    const checkedClass = status === true ? 'checked' : (status === false ? 'absent' : '');
+    const icon = status === true ? 'fa-check' : (status === false ? 'fa-times' : '');
+    return `
+      <div class="attendance-item">
+        <button class="attendance-check ${checkedClass}" onclick="toggleAttendance('${m.id}')">
+          <i class="fas ${icon}"></i>
+        </button>
+        <div class="attendance-name">${m.name}</div>
+        <span class="badge ${status === true ? 'badge-green' : (status === false ? 'badge-gold' : '')}" style="font-size:10px;">
+          ${status === true ? 'Yupo' : (status === false ? 'Hayupo' : '—')}
+        </span>
+      </div>
+    `;
+  }).join('');
+}
+
+document.getElementById('attendanceDate').addEventListener('change', renderAttendance);
+
+document.getElementById('attendanceDivFilter').addEventListener('click', (e) => {
+  const chip = e.target.closest('.division-chip');
+  if (!chip) return;
+  document.querySelectorAll('#attendanceDivFilter .division-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  attendanceDivFilter = chip.dataset.div;
+  renderAttendance();
+});
+
+function toggleAttendance(memberId) {
+  const date = document.getElementById('attendanceDate').value;
+  if (!appData.attendance[date]) appData.attendance[date] = {};
+  const current = appData.attendance[date][memberId];
+  if (current === undefined || current === null) {
+    appData.attendance[date][memberId] = true;
+  } else if (current === true) {
+    appData.attendance[date][memberId] = false;
+  } else {
+    appData.attendance[date][memberId] = undefined;
+  }
+  renderAttendance();
+}
+
+function markAll(present) {
+  const date = document.getElementById('attendanceDate').value;
+  if (!appData.attendance[date]) appData.attendance[date] = {};
+  let members = appData.members;
+  if (attendanceDivFilter !== 'all') {
+    members = members.filter(m => m.division === attendanceDivFilter);
+  }
+  members.forEach(m => {
+    appData.attendance[date][m.id] = present ? true : undefined;
+  });
+  renderAttendance();
+}
+
+function saveAttendance() {
+  const date = document.getElementById('attendanceDate').value;
+  const att = appData.attendance[date] || {};
+  const present = Object.values(att).filter(v => v === true).length;
+  const absent = Object.values(att).filter(v => v === false).length;
+  addActivity('fa-clipboard-check', `Mahudhurio ${formatDate(date)}: ${present} walihudhuria, ${absent} hawakuhudhuria`);
+  saveData();
+  showToast(`Mahudhurio yamehifadhiwa! (${present} yupo)`);
+}
+
+// ========== LESSONS ==========
+function renderLessons() {
+  const listEl = document.getElementById('lessonList');
+  if (appData.lessons.length === 0) {
+    listEl.innerHTML = '<div class="empty-state"><i class="fas fa-book-open"></i><p>Ongeza masomo ya robo mwaka</p></div>';
+    return;
+  }
+
+  listEl.innerHTML = appData.lessons.map((l, i) => `
+    <div class="lesson-item">
+      <div class="lesson-num">${i + 1}</div>
+      <div class="lesson-info">
+        <h4>${l.title}</h4>
+        <span>${l.date ? formatDate(l.date) : 'Tarehe haijawekwa'}</span>
+     </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        ${l.studied ? '<span class="lesson-studied"><i class="fas fa-check-circle"></i> Imesomwa</span>' : ''}
+        <button class="btn-icon" onclick="toggleLesson(${i})" title="${l.studied ? 'Ondoa alama' : 'Weka imesomwa'}">
+          <i class="fas ${l.studied ? 'fa-undo' : 'fa-check'}"></i>
+        </button>
+        <button class="btn-icon" onclick="deleteLesson(${i})" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleLesson(idx) {
+  appData.lessons[idx].studied = !appData.lessons[idx].studied;
+  saveData();
+  renderLessons();
+  renderDashboard();
+}
+
+function deleteLesson(idx) {
+  showConfirmDialog('Unataka kufuta somo hili?', () => {
+    appData.lessons.splice(idx, 1);
+    saveData();
+    renderLessons();
+    showToast('Somo limefutwa');
+  });
+}
+
+function openLessonModal() {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">Ongeza Somo</h2>
+      <div class="form-group">
+        <label>Kichwa cha Somo *</label>
+        <input type="text" id="lTitle" placeholder="Mfano: Imani na Matendo">
+      </div>
+      <div class="form-group">
+        <label>Tarehe ya Somo</label>
+        <input type="date" id="lDate">
+      </div>
+      <div class="form-group">
+        <label>Maelezo Mafupi</label>
+        <textarea id="lNotes" placeholder="Maelezo ya ziada..."></textarea>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove()">Ghairi</button>
+        <button class="btn btn-primary" id="saveLessonBtn">Ongeza</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+
+  overlay.querySelector('#saveLessonBtn').addEventListener('click', () => {
+    const title = overlay.querySelector('#lTitle').value.trim();
+    if (!title) { showToast('Weka kichwa cha somo!'); return; }
+    appData.lessons.push({
+      title,
+      date: overlay.querySelector('#lDate').value,
+      notes: overlay.querySelector('#lNotes').value.trim(),
+      studied: false
+    });
+    addActivity('fa-book-open', `Somo limeongezwa: ${title}`);
+    saveData();
+    overlay.remove();
+    renderLessons();
+    showToast('Somo limeongezwa!');
+  });
+}
+
+// ========== OFFERINGS ==========
+function renderOfferings() {
+  const dateInput = document.getElementById('offeringDate');
+  if (!dateInput.value) dateInput.value = getTodayStr();
+
+  const date = dateInput.value;
+  const todayOfferings = appData.offerings.filter(o => o.date === date);
+  const listEl = document.getElementById('offeringList');
+
+  if (todayOfferings.length === 0) {
+    listEl.innerHTML = '<div class="empty-state"><i class="fas fa-hand-holding-heart"></i><p>Hakuna sadaka kwa tarehe hii</p></div>';
+  } else {
+    listEl.innerHTML = todayOfferings.map((o, i) => `
+      <div class="offering-entry">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--gold-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <i class="fas fa-coins" style="color:var(--gold);font-size:13px;"></i>
+        </div>
+        <div class="offering-type">${o.type}</div>
+        <div class="offering-amount">TZS ${formatCurrency(o.amount)}</div>
+        <button class="btn-icon" onclick="deleteOffering('${o.id}')" style="color:var(--danger);font-size:12px;"><i class="fas fa-times"></i></button>
+      </div>
+    `).join('');
+  }
+
+  const total = todayOfferings.reduce((s, o) => s + (o.amount || 0), 0);
+  document.getElementById('todayOfferingTotal').textContent = 'TZS ' + formatCurrency(total);
+}
+
+document.getElementById('offeringDate').addEventListener('change', renderOfferings);
+
+function deleteOffering(id) {
+  showConfirmDialog('Unataka kufuta sadaka hii?', () => {
+    appData.offerings = appData.offerings.filter(o => o.id !== id);
+    saveData();
+    renderOfferings();
+    showToast('Sadaka imefutwa');
+  });
+}
+
+function openOfferingModal() {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">Ongeza Sadaka</h2>
+      <div class="form-group">
+        <label>Aina ya Sadaka *</label>
+        <select id="oType">
+          <option value="">Chagua aina</option>
+          <option value="Zaka">Zaka (Tithe)</option>
+          <option value="Sadaka ya Shule Sabato">Sadaka ya Shule Sabato</option>
+          <option value="Sadaka ya Kanisa">Sadaka ya Kanisa</option>
+          <option value="Sadaka ya Misheni">Sadaka ya Misheni</option>
+          <option value="Sadaka ya Sabato 13">Sadaka ya Sabato 13</option>
+          <option value="Sadaka ya Ujenzi">Sadaka ya Ujenzi</option>
+          <option value="Sadaka ya Shukrani">Sadaka ya Shukrani</option>
+          <option value="Sadaka Nyingine">Sadaka Nyingine</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Kiasi (TZS) *</label>
+        <input type="number" id="oAmount" placeholder="Mfano: 50000" min="0">
+      </div>
+      <div class="form-group">
+        <label>Maelezo</label>
+        <input type="text" id="oNotes" placeholder="Maelezo ya ziada...">
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove()">Ghairi</button>
+        <button class="btn btn-primary" id="saveOfferingBtn">Ongeza</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+
+  overlay.querySelector('#saveOfferingBtn').addEventListener('click', () => {
+    const type = overlay.querySelector('#oType').value;
+    const amount = parseFloat(overlay.querySelector('#oAmount').value);
+    if (!type || !amount || amount <= 0) { showToast('Jaza aina na kiasi cha sadaka!'); return; }
+    const date = document.getElementById('offeringDate').value || getTodayStr();
+    appData.offerings.push({
+      id: generateId(),
+      type,
+      amount,
+      notes: overlay.querySelector('#oNotes').value.trim(),
+      date
+    });
+    addActivity('fa-hand-holding-heart', `Sadaka: ${type} - TZS ${formatCurrency(amount)}`);
+    saveData();
+    overlay.remove();
+    renderOfferings();
+    renderDashboard();
+    showToast('Sadaka imeongezwa!');
+  });
+}
+
+// ========== REPORTS ==========
+function generateReport() {
+  const from = document.getElementById('reportFrom').value;
+  const to = document.getElementById('reportTo').value;
+  if (!from || !to) { showToast('Chagua tarehe za ripoti!'); return; }
+
+  document.getElementById('reportOutput').style.display = 'block';
+
+  // Attendance report
+  const attEl = document.getElementById('reportAttendance');
+  let attDates = Object.keys(appData.attendance).filter(d => d >= from && d <= to).sort();
+  let totalPresent = 0;
+  let totalAbsent = 0;
+  let attRows = '';
+
+  attDates.forEach(date => {
+    const rec = appData.attendance[date] || {};
+    const p = Object.values(rec).filter(v => v === true).length;
+    const a = Object.values(rec).filter(v => v === false).length;
+    totalPresent += p;
+    totalAbsent += a;
+    attRows += `<div class="report-row"><span class="label">${formatDate(date)}</span><span class="value">${p} yupo / ${a} hayupo</span></div>`;
+  });
+
+  attEl.innerHTML = attRows || '<div class="report-row"><span class="label">Hakuna data</span></div>';
+  attEl.innerHTML += `<div class="report-row" style="border-top:2px solid var(--gold);margin-top:8px;padding-top:10px;"><span class="label" style="font-weight:700;">JUMLA</span><span class="value report-total">${totalPresent} yupo / ${totalAbsent} hayupo</span></div>`;
+
+  // Offering report
+  const offEl = document.getElementById('reportOfferings');
+  const periodOfferings = appData.offerings.filter(o => o.date >= from && o.date <= to);
+  const byType = {};
+  periodOfferings.forEach(o => {
+    if (!byType[o.type]) byType[o.type] = 0;
+    byType[o.type] += o.amount;
+  });
+
+  const grandTotal = periodOfferings.reduce((s, o) => s + o.amount, 0);
+  let offRows = Object.entries(byType).map(([type, amt]) =>
+    `<div class="report-row"><span class="label">${type}</span><span class="value">TZS ${formatCurrency(amt)}</span></div>`
+  ).join('');
+
+  offEl.innerHTML = offRows || '<div class="report-row"><span class="label">Hakuna data</span></div>';
+  offEl.innerHTML += `<div class="report-row" style="border-top:2px solid var(--gold);margin-top:8px;padding-top:10px;"><span class="label" style="font-weight:700;">JUMLA KUU</span><span class="value report-total">TZS ${formatCurrency(grandTotal)}</span></div>`;
+
+  // Lessons report
+  const lessEl = document.getElementById('reportLessons');
+  const studied = appData.lessons.filter(l => l.studied);
+  const notStudied = appData.lessons.filter(l => !l.studied);
+  lessEl.innerHTML = `
+    <div class="report-row"><span class="label">Masomo yaliyosomwa</span><span class="value" style="color:var(--success);">${studied.length}</span></div>
+    <div class="report-row"><span class="label">Masomo hayajasomwa</span><span class="value" style="color:var(--danger);">${notStudied.length}</span></div>
+    <div class="report-row"><span class="label">Jumla ya masomo</span><span class="value">${appData.lessons.length}</span></div>
+  `;
+
+  // ===== REPORT TEXT (Split into 2 parts) =====
+  const churchName = 'Kanisa la Waadventista wa Sabato';
+  const divisionCounts = {};
+  appData.members.forEach(m => {
+    if (!divisionCounts[m.division]) divisionCounts[m.division] = 0;
+    divisionCounts[m.division]++;
+  });
+
+  // SEHEMU YA 1: Muhtasari wa Jumla + Mahudhurio
+  let text1 = '';
+  text1 += '═══════════════════════════\n';
+  text1 += '   RIPOTI YA SHULE SABATO\n';
+  text1 += '   ' + churchName + '\n';
+  text1 += '═══════════════════════════\n';
+  text1 += `Kipindi: ${formatDate(from)} - ${formatDate(to)}\n`;
+  text1 += `Tarehe ya Ripoti: ${formatDate(getTodayStr())}\n\n`;
+
+  text1 += '📊 MUHTASARI WA WANACHAMA\n';
+  text1 += '───────────────────────────\n';
+  text1 += `Jumla ya Wanachama: ${appData.members.length}\n`;
+  Object.entries(divisionCounts).forEach(([div, count]) => {
+    text1 += `  • ${div}: ${count}\n`;
+  });
+
+  text1 += '\n📋 MAHUDHURIO\n';
+  text1 += '───────────────────────────\n';
+  attDates.forEach(date => {
+    const rec = appData.attendance[date] || {};
+    const p = Object.values(rec).filter(v => v === true).length;
+    const a = Object.values(rec).filter(v => v === false).length;
+    const total = p + a;
+    const pct = total > 0 ? Math.round((p / total) * 100) : 0;
+    text1 += `${formatDate(date)}: ${p}/${total} (${pct}%)\n`;
+  });
+  text1 += `\nJUMLA: ${totalPresent} walihudhuria, ${totalAbsent} hawakuhudhuria\n`;
+  const overallTotal = totalPresent + totalAbsent;
+  const overallPct = overallTotal > 0 ? Math.round((totalPresent / overallTotal) * 100) : 0;
+  text1 += `Wastani wa Mahudhurio: ${overallPct}%\n`;
+
+  document.getElementById('reportText1').textContent = text1;
+
+  // SEHEMU YA 2: Sadaka + Masomo
+  let text2 = '';
+  text2 += '═══════════════════════════\n';
+  text2 += '   RIPOTI SEHEMU YA 2\n';
+  text2 += '═══════════════════════════\n\n';
+
+  text2 += '💰 SADAKA NA ZAKA\n';
+  text2 += '───────────────────────────\n';
+  Object.entries(byType).forEach(([type, amt]) => {
+    text2 += `  • ${type}: TZS ${formatCurrency(amt)}\n`;
+  });
+  text2 += `\n  JUMLA KUU: TZS ${formatCurrency(grandTotal)}\n`;
+
+  // Sadaka breakdown by date
+  const offeringByDate = {};
+  periodOfferings.forEach(o => {
+    if (!offeringByDate[o.date]) offeringByDate[o.date] = [];
+    offeringByDate[o.date].push(o);
+  });
+  if (Object.keys(offeringByDate).length > 0) {
+    text2 += '\n  Maelezo kwa Tarehe:\n';
+    Object.entries(offeringByDate).sort().forEach(([date, offs]) => {
+      const dayTotal = offs.reduce((s, o) => s + o.amount, 0);
+      text2 += `  ${formatDate(date)} - TZS ${formatCurrency(dayTotal)}\n`;
+      offs.forEach(o => {
+        text2 += `    └ ${o.type}: TZS ${formatCurrency(o.amount)}\n`;
+      });
+    });
+  }
+
+  text2 += '\n📖 MASOMO YA SHULE SABATO\n';
+  text2 += '───────────────────────────\n';
+  text2 += `Yaliyosomwa: ${studied.length} / ${appData.lessons.length}\n`;
+  if (studied.length > 0) {
+    text2 += '\nMasomo yaliyokamilika:\n';
+    studied.forEach((l, i) => {
+      text2 += `  ✅ ${i+1}. ${l.title}\n`;
+    });
+  }
+  if (notStudied.length > 0) {
+    text2 += '\nMasomo hayajakamilika:\n';
+    notStudied.forEach((l, i) => {
+      text2 += `  ⬜ ${i+1}. ${l.title}\n`;
+    });
+  }
+
+  text2 += '\n═══════════════════════════\n';
+  text2 += '  Imeandaliwa na Genesis App\n';
+  text2 += '  Shule Sabato - SDA\n';
+  text2 += '═══════════════════════════\n';
+
+  document.getElementById('reportText2').textContent = text2;
+}
+
+function copyReport(part) {
+  let text = '';
+  if (part === 1) {
+    text = document.getElementById('reportText1').textContent;
+  } else if (part === 2) {
+    text = document.getElementById('reportText2').textContent;
+  } else {
+    text = document.getElementById('reportText1').textContent + '\n\n' + document.getElementById('reportText2').textContent;
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(part === 'all' ? 'Ripoti yote imenakiliwa!' : `Sehemu ya ${part} imenakiliwa!`);
+    }).catch(() => {
+      fallbackCopy(text, part);
+    });
+  } else {
+    fallbackCopy(text, part);
+  }
+}
+
+function fallbackCopy(text, part) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast(part === 'all' ? 'Ripoti yote imenakiliwa!' : `Sehemu ya ${part} imenakiliwa!`);
+  } catch (e) {
+    showToast('Imeshindwa kunakili. Jaribu tena.');
+  }
+  document.body.removeChild(ta);
+}
+
+// ========== ACTIVITY LOG ==========
+function addActivity(icon, text) {
+  appData.activities.push({
+    icon,
+    text,
+    date: formatDate(getTodayStr())
+  });
+  // Keep only last 20
+  if (appData.activities.length > 20) {
+    appData.activities = appData.activities.slice(-20);
+  }
+}
+
+// ========== FAB HANDLER ==========
+function handleFab() {
+  if (currentPage === 'wanachama') openMemberModal();
+  else if (currentPage === 'sadaka') openOfferingModal();
+  else if (currentPage === 'masomo') openLessonModal();
+}
+
+// ========== HEADER DATE ==========
+function updateHeaderDate() {
+  const now = new Date();
+  const days = ['Jumapili','Jumatatu','Jumanne','Jumatano','Alhamisi','Ijumaa','Jumamosi'];
+  const months = ['Januari','Februari','Machi','Aprili','Mei','Juni','Julai','Agosti','Septemba','Oktoba','Novemba','Desemba'];
+  document.getElementById('currentDate').textContent = days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+  const sabbath = getNextSabbath();
+  const isSabbath = now.getDay() === 6;
+  document.getElementById('sabatoDate').textContent = isSabbath ? '✦ Leo ni Sabato ✦' : 'Sabato: ' + sabbath.getDate() + ' ' + months[sabbath.getMonth()];
+}
+
+// ========== BOOT ==========
+loadData();
+updateHeaderDate();
+renderDashboard();
+
+// Set default report dates
+const today = new Date();
+const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+document.getElementById('reportFrom').value = firstDay.toISOString().split('T')[0];
+document.getElementById('reportTo').value = lastDay.toISOString().split('T')[0];
+
+// FAB visibility on load
+document.getElementById('mainFab').style.display = 'none';
+</script>
+
+</body>
+</html>
+  
